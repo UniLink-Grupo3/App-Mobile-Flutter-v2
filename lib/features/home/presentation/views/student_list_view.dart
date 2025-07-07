@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:profile_page/features/home/domain/entities/university_student_without_car.dart';
 import 'package:profile_page/features/home/presentation/views/student_car_view.dart';
 
-
 class StudentListView extends StatefulWidget {
   const StudentListView({
-    super.key, 
-    required this.students, 
+    super.key,
+    required this.students,
     required this.boardedIds,
     required this.onBoarded,
   });
@@ -24,7 +23,7 @@ class _StudentListViewState extends State<StudentListView> {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: widget.students.length,
-      itemBuilder: (context, index){
+      itemBuilder: (context, index) {
         final student = widget.students[index];
         final boarded = widget.boardedIds.contains(student.id);
         return Padding(

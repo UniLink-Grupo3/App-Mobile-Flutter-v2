@@ -18,7 +18,8 @@ class StudentRequestSheetView extends StatelessWidget {
     return SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.only(
-          bottom: MediaQuery.of(context).viewInsets.bottom),
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
         child: Container(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -48,13 +49,20 @@ class StudentRequestSheetView extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('¡${student.name} quiere un viaje!',
+                        Text(
+                          '¡${student.name} quiere un viaje!',
                           style: const TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold)
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                        Text(student.university,
+                        Text(
+                          student.university,
                           style: TextStyle(
-                              fontSize: 14, color: Colors.grey[600])),
+                            fontSize: 14,
+                            color: Colors.grey[600],
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -64,8 +72,10 @@ class StudentRequestSheetView extends StatelessWidget {
                       Text(
                         'S/.${student.price.toStringAsFixed(2)}',
                         style: const TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.bold),
-                      )
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ],
                   ),
                 ],
@@ -76,13 +86,15 @@ class StudentRequestSheetView extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      Icon(Icons.circle,
-                          color: Colors.grey[700], size: 16),                          SizedBox(
-                          height: 30,
-                          child: VerticalDivider(
-                              color: Colors.grey[400], thickness: 2)),
-                      Icon(Icons.location_on,
-                          color: Colors.green, size: 24),
+                      Icon(Icons.circle, color: Colors.grey[700], size: 16),
+                      SizedBox(
+                        height: 30,
+                        child: VerticalDivider(
+                          color: Colors.grey[400],
+                          thickness: 2,
+                        ),
+                      ),
+                      Icon(Icons.location_on, color: Colors.green, size: 24),
                     ],
                   ),
                   const SizedBox(width: 12),
@@ -90,19 +102,35 @@ class StudentRequestSheetView extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Punto de Recojo:',
-                            style: TextStyle(
-                                fontSize: 12, color: Colors.grey[700])),
-                        Text(student.pickup,
-                            style: const TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w500)),
+                        Text(
+                          'Punto de Recojo:',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[700],
+                          ),
+                        ),
+                        Text(
+                          student.pickup,
+                          style: const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
                         const SizedBox(height: 24),
-                        Text('Punto de Destino:',
-                            style: TextStyle(
-                                fontSize: 12, color: Colors.grey[700])),
-                        Text(student.destination,
-                            style: const TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w500)),
+                        Text(
+                          'Punto de Destino:',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[700],
+                          ),
+                        ),
+                        Text(
+                          student.destination,
+                          style: const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -119,10 +147,13 @@ class StudentRequestSheetView extends StatelessWidget {
                         side: const BorderSide(color: Colors.grey),
                         padding: const EdgeInsets.symmetric(vertical: 12),
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8)),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
                       ),
-                      child: const Text('Rechazar',
-                          style: TextStyle(fontSize: 16)),
+                      child: const Text(
+                        'Rechazar',
+                        style: TextStyle(fontSize: 16),
+                      ),
                     ),
                   ),
                   const SizedBox(width: 16),
@@ -134,10 +165,13 @@ class StudentRequestSheetView extends StatelessWidget {
                         foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(vertical: 12),
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8)),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
                       ),
-                      child: const Text('Aceptar',
-                          style: TextStyle(fontSize: 16)),
+                      child: const Text(
+                        'Aceptar',
+                        style: TextStyle(fontSize: 16),
+                      ),
                     ),
                   ),
                 ],

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:profile_page/features/home/data/destinations_information.dart';
 
 class StudentDestinationView extends StatefulWidget {
-  const StudentDestinationView({
-    super.key,
-    this.onConfirm,
-    });
+  const StudentDestinationView({super.key, this.onConfirm});
 
-    final ValueChanged<String>? onConfirm;
+  final ValueChanged<String>? onConfirm;
 
   @override
   State<StudentDestinationView> createState() => _StudentDestinationViewState();
@@ -15,25 +13,16 @@ class StudentDestinationView extends StatefulWidget {
 class _StudentDestinationViewState extends State<StudentDestinationView> {
   final TextEditingController _controller = TextEditingController();
   final FocusNode _focusNode = FocusNode();
-  
-  /// Lista maestra de destinos (puedes reemplazarla por datos remotos)
-  static const List<String> _allDestinations = [
-    'UPC - San Miguel',
-    'UPC - Monterrico',
-    'UPC - San Isidro',
-    'UNMSM - Ciudad Universitaria',
-    'UNI - Independencia',
-    'PUCP - San Miguel',
-    'UPN - Lima Norte',
-    'USMP - La Molina',
-  ];
 
-  List<String> _filtered = _allDestinations; // inicialmente todas
+  /// Lista maestra de destinos (puedes reemplazarla por datos remotos)
+  final List<String> _allDestinations= DestinationConstants.allDestinations;
+
+  late List<String> _filtered; // inicialmente todas
 
   @override
   void initState() {
     super.initState();
-
+    _filtered = _allDestinations;
     // Filtrar en cada cambio de texto
     _controller.addListener(_filterList);
   }
@@ -59,13 +48,16 @@ class _StudentDestinationViewState extends State<StudentDestinationView> {
   void _handleConfirm() {
     final dest = _controller.text.trim(); //guardando el valor
     if (dest.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('Por favor ingresa o selecciona un destino.')));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Por favor ingresa o selecciona un destino.'),
+        ),
+      );
       return;
     }
     // Devuelve el valor a quien lo invoque
     widget.onConfirm?.call(dest);
-    Navigator.pop(context,dest);
+    Navigator.pop(context, dest);
   }
 
   @override
@@ -90,8 +82,10 @@ class _StudentDestinationViewState extends State<StudentDestinationView> {
                 hintText: 'Search',
                 hintStyle: const TextStyle(color: Colors.grey),
                 prefixIcon: const Icon(Icons.search, color: Colors.black54),
-                contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 0),
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 0,
+                ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(40),
                   borderSide: BorderSide.none,
@@ -128,8 +122,7 @@ class _StudentDestinationViewState extends State<StudentDestinationView> {
             ),
 
           Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
             child: SizedBox(
               width: double.infinity,
               height: 46,
@@ -143,8 +136,11 @@ class _StudentDestinationViewState extends State<StudentDestinationView> {
                 onPressed: _handleConfirm,
                 child: const Text(
                   'ir',
-                  style:
-                      TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
