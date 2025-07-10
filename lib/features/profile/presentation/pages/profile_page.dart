@@ -21,6 +21,7 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       backgroundColor: Colors.white, // Color del fondo de la pantalla. AQUI
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('PERFIL'), 
         centerTitle: true,
         ),
