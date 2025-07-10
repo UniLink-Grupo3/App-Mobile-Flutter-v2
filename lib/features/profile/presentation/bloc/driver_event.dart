@@ -5,7 +5,7 @@ abstract class DriverEvent {
 }
 
 class GetDriverInfo extends DriverEvent {
-  final String id;
+  final int id;
 
   const GetDriverInfo({
     required this.id,
