@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:profile_page/features/app/data/fake_student_data.dart';
 import 'package:profile_page/features/home/presentation/pages/star_trip_page.dart';
+import 'package:profile_page/features/profile/presentation/bloc/driver_bloc.dart';
+import 'package:profile_page/features/profile/presentation/bloc/driver_event.dart';
 import 'package:profile_page/features/trip/presentation/pages/trip_page.dart';
 import 'package:profile_page/features/home/domain/entities/university_student_without_car.dart';
 import 'package:profile_page/features/profile/presentation/pages/profile_page.dart';
@@ -64,7 +67,7 @@ class _MainPageState extends State<MainPage> {
       acceptedStudents: _acceptedStudents,
       boardedIds: _boardedIds,
       onAccept: _handleAccept,
-    );
+    ); // Cargar el conductor al iniciar la página
     _profile   = const ProfilePage();
   }
 

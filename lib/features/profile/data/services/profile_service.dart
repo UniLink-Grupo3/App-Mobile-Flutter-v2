@@ -7,8 +7,8 @@ import 'package:profile_page/features/profile/domain/entities/driver.dart';
 
 class ProfileService {
 
-  Future<Driver> getDriver() async {
-    final Uri url = Uri.parse('http://localhost:3000/users/1');
+  Future<Driver> getDriver(int id) async {
+    final Uri url = Uri.parse('http://localhost:3000/users/${id}');
     http.Response response = await http.get(url);
     if (response.statusCode == HttpStatus.ok) {
       final drivermap = jsonDecode(response.body) as Map<String, dynamic>;
@@ -25,7 +25,9 @@ class ProfileService {
       url,
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode({
+        'id': driver.id,
         'name': driver.name,
+        'mail': driver.mail,
         'university': driver.university,
         'car': driver.car,
       }),
