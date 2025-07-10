@@ -67,10 +67,7 @@ class _MainPageState extends State<MainPage> {
       acceptedStudents: _acceptedStudents,
       boardedIds: _boardedIds,
       onAccept: _handleAccept,
-    );
-    context.read<DriverBloc>().add(GetDriverInfo(id: 1,)); // Cargar el conductor al iniciar la página
-    
-    
+    ); // Cargar el conductor al iniciar la página
     _profile   = const ProfilePage();
   }
 

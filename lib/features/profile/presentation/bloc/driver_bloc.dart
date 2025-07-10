@@ -10,7 +10,7 @@ class DriverBloc extends Bloc<DriverEvent, DriverState> {
     on<GetDriverInfo>((event, emit) async {
       emit(LoadingDriverState());
       try {
-        Driver driver = await ProfileService().getDriver();
+        Driver driver = await ProfileService().getDriver(event.id);
         emit(LoadedDriverState(driver: driver));
       } catch (e) {
         emit(ErrorDriverState(message: e.toString()));
@@ -21,7 +21,7 @@ class DriverBloc extends Bloc<DriverEvent, DriverState> {
       emit(LoadingDriverState());
       try {
         Driver updatedDriver = Driver(
-          id: 1, // Assuming the ID remains the same
+          id: event.id, 
           name: event.name,
           mail: event.mail,
           university: event.university,

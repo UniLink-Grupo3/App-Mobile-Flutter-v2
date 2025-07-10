@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:profile_page/features/profile/domain/entities/driver.dart';
+import 'package:profile_page/features/profile/presentation/bloc/driver_bloc.dart';
+import 'package:profile_page/features/profile/presentation/bloc/driver_event.dart';
 
 class ProfileEditForm extends StatefulWidget {
   final Driver driver; // Asumiendo que Driver es una clase que contiene la información del conductor
@@ -122,8 +125,14 @@ class _ProfileEditFormState extends State<ProfileEditForm> {
 
                     if (!isEditing) {
                       // Aquí iría la lógica para guardar los cambios
-                      // Puedes acceder a los valores con:
-                      // nameController.text, emailController.text, etc.
+                      
+                      context.read<DriverBloc>().add(UpdateDriverInfo(
+                        id: widget.driver.id, 
+                        name: nameController.text,
+                        mail: emailController.text,
+                        university: universityController.text,
+                        car: carController.text,
+                      ));
                     }
                   },
                   style: ElevatedButton.styleFrom(
