@@ -23,6 +23,7 @@ class DriverBloc extends Bloc<DriverEvent, DriverState> {
         Driver updatedDriver = Driver(
           id: 1, // Assuming the ID remains the same
           name: event.name,
+          mail: event.mail,
           university: event.university,
           car: event.car,
         );
